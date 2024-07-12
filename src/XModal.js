@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 import { Form, Button } from 'react-bootstrap';
 
@@ -9,10 +9,29 @@ const XModal = () => {
     const [phone, setPhone] = useState('');
     const [dob, setDob] = useState('');
 
+    const modalRef = useRef(null);
+
+    const handleClickOutside = (event) => {
+        if (modalRef.current && !modalRef.current.contains(event.target)) {
+            setShow(false);
+        }
+    };
+
+    useEffect(() => {
+        if (show) {
+            document.addEventListener('mousedown', handleClickOutside);
+        } else {
+            document.removeEventListener('mousedown', handleClickOutside);
+        }
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [show]);
+
     const FormModal = () => (
         <>
             <div className='modal-wrapper'></div>
-            <div className='modal-container'>
+            <div className='modal-container' ref={modalRef}>
                 <Form>
                     <h2>Fill Details</h2>
                     <Form.Group controlId="username">
@@ -66,18 +85,12 @@ const XModal = () => {
 
     return (
         <div>
-
             <div className="modal">
-
                 <div className="modal-content">
-
                     <button onClick={() => setShow(true)}>Open Form</button>
                     {show && <FormModal />}
-
                 </div>
-
             </div>
-
         </div>
     );
 }
