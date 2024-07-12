@@ -79,7 +79,7 @@ const XModal = () => {
   );
 
   return (
-    <div className="container">
+    <>
       <button onClick={() => setShow(true)}>Open Form</button>
       {show && (
         <div className="modal">
@@ -88,7 +88,7 @@ const XModal = () => {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 }
 
