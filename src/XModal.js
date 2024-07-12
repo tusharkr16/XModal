@@ -85,12 +85,14 @@ const XModal = () => {
 
     return (
         <div>
-            <div className="modal">
-                <div className="modal-content">
-                    <button onClick={() => setShow(true)}>Open Form</button>
-                    {show && <FormModal />}
+            <button onClick={() => setShow(true)}>Open Form</button>
+            {show && (
+                <div className="modal">
+                    <div className="modal-content">
+                        <FormModal />
+                    </div>
                 </div>
-            </div>
+            )}
         </div>
     );
 }
