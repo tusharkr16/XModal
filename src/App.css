@@ -1,0 +1,51 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container{
+  margin: 5rem;
+
+}
+
+.modal-wrapper{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: rgba(189,189,189,0.9);
+}
+
+.modal-container{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 10px;
+  margin: 10px;
+}
+
+.modal-container form {
+    padding: 60px; /* Adds padding inside the form */
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-container form label {
+    font-size: 1.3rem; /* Increases label text size */
+    margin-bottom: 0.5rem; 
+    font: bold;/* Adds space below each label */
+    
+}
+
+.modal-container form .form-control {
+    margin-bottom: 1rem; /* Adds space below each form control */
+    font-size: 1rem; /* Adjusts input text size */
+    width: 100%; /* Ensures input field takes full width */
+    padding: 5px;
+}
+
